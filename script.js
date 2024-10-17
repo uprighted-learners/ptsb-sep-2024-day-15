@@ -65,11 +65,25 @@ function determineWinner(userChoice, computerChoice) {
         console.log(`Your score: ${userScore}`);
         console.log(`Computer score: ${computerScore}`);
     }
+
+    playAgain();
 }
 
 // function to prompt user and take input
 function promptUser() {
     rl.question("Enter rock, paper, or scissors: ", handleUserChoice)
+}
+
+function playAgain() {
+    console.log("Do you want to play again? (yes/no)");
+    rl.question("Enter your choice: ", (answer) => {
+        if (answer.toLowerCase() === "yes") {
+            promptUser();
+        } else {
+            console.log("Thanks for playing!");
+            rl.close();
+        }
+    });
 }
 
 // function to start the game!
